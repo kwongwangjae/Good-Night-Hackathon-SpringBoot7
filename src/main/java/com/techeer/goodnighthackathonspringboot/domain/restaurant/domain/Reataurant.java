@@ -1,19 +1,19 @@
 package com.techeer.goodnighthackathonspringboot.domain.restaurant.domain;
 
-import com.techeer.goodnighthackathonspringboot.global.domain.BaseEntity;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor(access= AccessLevel.PROTECTED)
-@Table(name = "restaurant")
-public class Restaurant extends BaseEntity {
-
+public class Reataurant {
+    public Reataurant() {
+    }
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "name")
@@ -24,13 +24,8 @@ public class Restaurant extends BaseEntity {
     private Category category;
 
     @Builder
-    public Restaurant(String name, Category category){
+    public Reataurant(String name, Category category){
         this.name = name;
         this.category = category;
     }
-
-    public void delete(){
-        this.activeOff();
-    }
-
 }
